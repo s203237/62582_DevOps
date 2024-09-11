@@ -1,0 +1,1 @@
+Database schema, migration files, and seeding scripts

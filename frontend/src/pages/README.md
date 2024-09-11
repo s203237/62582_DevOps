@@ -1,0 +1,1 @@
+Pages of the web app (e.g., Home, ProductPage)
