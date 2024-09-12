@@ -5,10 +5,8 @@ import React from 'react';
 const PaymentPage: React.FC = () => {
     return (
         <div>
-            <h1>Welcome to My Simple Page</h1>
-            <p>This is a simple page created with TypeScript and React.</p>'
-            <a href={"http://localhost:3000/users/"}>tryk</a>
-
+            <h1>Payment page</h1>
+            <p>PAYMENT.</p>'
         </div>
     );
 }

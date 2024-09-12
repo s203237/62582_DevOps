@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PaymentPage from "./views/PaymentPage";
+import HomePage from "./views/HomePage";
 
 const App: React.FC = () => (
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<PaymentPage />} />
-            <Route path="/users/" element={<div> hej</div>} />
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/payment" element={<PaymentPage />} />
         </Routes>
     </BrowserRouter>
 );
