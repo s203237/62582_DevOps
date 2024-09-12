@@ -1,0 +1,132 @@
+
+
+/* Layout */
+.product-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+}
+
+/* Billede stil */
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Produkt */
+.product-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Titel */
+.product-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Produkt beskrivelse */
+.product-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Pris */
+.product-price span {
+    font-size: 3rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* Vælg kvantitet */
+.product-quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-quantity label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.product-quantity select {
+    padding: 8px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Kurv knap */
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+/* Lager info */
+.product-purchase p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: normal;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .product-details {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .product-quantity {
+        justify-content: center;
+    }
+
+    .product-price span {
+        display: block;
+        margin-bottom: 15px;
+    }
+}
+
+
