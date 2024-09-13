@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Product } from "../interface/products"; // Assuming you're importing an interface for Product
+import { Product } from "../interface/products";
+import "../styles/HomePage.css";
 
 interface HomePageProps {
-  products: Product[]; // Define that the prop 'products' is an array of Product
+  products: Product[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({ products }) => {
@@ -10,19 +11,19 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
   //const limitedProducts = products.slice(0, 5);
 
   //Load more products
-  const [visibleProducts, setVisibleProducts] = useState(5);
+  const [visibleProducts, setVisibleProducts] = useState(6);
 
   // Show more products when the button is clicked
   const loadMoreProducts = () => {
-    setVisibleProducts((prev) => prev + 5);
+    setVisibleProducts((prev) => prev + 3);
   };
 
   return (
     <div>
       <h1>Name and Logo</h1>
-      <div>
+      <div className="products-container">
         {products.slice(0, visibleProducts).map((product) => (
-          <div key={product.id}>
+          <div key={product.id} className="product">
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
