@@ -65,6 +65,7 @@ const PaymentPage: React.FC = () => {
                             name="fullName"
                             value={billingInfo.fullName}
                             onChange={handleInputChange}
+                            placeholder="Hans Hansen"
                             required
                         />
                     </label>
@@ -75,6 +76,7 @@ const PaymentPage: React.FC = () => {
                             name="email"
                             value={billingInfo.email}
                             onChange={handleInputChange}
+                            placeholder="hans@hansen.com"
                             required
                         />
                     </label>
@@ -85,6 +87,7 @@ const PaymentPage: React.FC = () => {
                             name="phoneNumber"
                             value={billingInfo.phoneNumber}
                             onChange={handleInputChange}
+                            placeholder="+xx xxxxxxxx"
                             required
                         />
                     </label>
@@ -100,6 +103,7 @@ const PaymentPage: React.FC = () => {
                             name="streetAddress"
                             value={billingInfo.streetAddress}
                             onChange={handleInputChange}
+                            placeholder="Lautrupvang 15"
                             required
                         />
                     </label>
@@ -110,15 +114,17 @@ const PaymentPage: React.FC = () => {
                             name="addressLine2"
                             value={billingInfo.addressLine2}
                             onChange={handleInputChange}
+                            placeholder="1. tv"
                         />
                     </label>
                     <label>
-                        Postcode (Postnummer):
+                        Postcode:
                         <input
                             type="text"
                             name="postcode"
                             value={billingInfo.postcode}
                             onChange={handleInputChange}
+                            placeholder="2750"
                             required
                         />
                     </label>
@@ -129,6 +135,7 @@ const PaymentPage: React.FC = () => {
                             name="city"
                             value={billingInfo.city}
                             onChange={handleInputChange}
+                            placeholder="Ballerup"
                             required
                         />
                     </label>
@@ -180,6 +187,7 @@ const PaymentPage: React.FC = () => {
                                     name="cardNumber"
                                     value={paymentDetails.cardNumber}
                                     onChange={handlePaymentDetailsChange}
+                                    placeholder="xxxx xxxx xxxx xxxx"
                                     required
                                 />
                             </label>
@@ -190,6 +198,7 @@ const PaymentPage: React.FC = () => {
                                     name="expiryDate"
                                     value={paymentDetails.expiryDate}
                                     onChange={handlePaymentDetailsChange}
+                                    placeholder="MM/YY"
                                     required
                                 />
                             </label>
@@ -200,6 +209,7 @@ const PaymentPage: React.FC = () => {
                                     name="cvv"
                                     value={paymentDetails.cvv}
                                     onChange={handlePaymentDetailsChange}
+                                    placeholder="xxx"
                                     required
                                 />
                             </label>
@@ -214,6 +224,7 @@ const PaymentPage: React.FC = () => {
                                 name="mobilePayPhoneNumber"
                                 value={paymentDetails.mobilePayPhoneNumber}
                                 onChange={handlePaymentDetailsChange}
+                                placeholder="+xx xxxxxxxx"
                                 required
                             />
                         </label>
