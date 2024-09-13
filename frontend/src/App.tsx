@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../src/views/HomePage"; // Import your HomePage component
 import PaymentPage from "../src/views/PaymentPage"; // Import PaymentPage component
 import productsData from "./data/products.json"; // Import the products JSON file
-import { HomePageProvider } from "../src/context/HomePageContext";
+import { HomePageProvider } from "./context/HomepageContext";
 
 const App: React.FC = () => {
   return (
