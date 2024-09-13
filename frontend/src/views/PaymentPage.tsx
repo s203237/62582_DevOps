@@ -129,7 +129,7 @@ const PaymentPage: React.FC = () => {
                         />
                     </label>
                     <label>
-                        City (By):
+                        City:
                         <input
                             type="text"
                             name="city"
@@ -140,7 +140,7 @@ const PaymentPage: React.FC = () => {
                         />
                     </label>
                     <label>
-                        Country (Land):
+                        Country:
                         <input
                             type="text"
                             name="country"
