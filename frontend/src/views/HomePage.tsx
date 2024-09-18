@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Product } from "../interface/products";
+import "../styles/HomePage.css";
 
-const PaymentPage: React.FC = () => {
-        return (
-            <div>
-                <h1>Welcome to My Simple Page</h1>
-                <p>This is a simple page created with TypeScript and React.</p>'
-                <a href={"http://localhost:3000/payment/"}>PAYMENT</a>
+interface HomePageProps {
+  products: Product[];
+}
 
-            </div>
-        );
-    }
-;
+const HomePage: React.FC<HomePageProps> = ({ products }) => {
+  // Limit the number of products displayed
+  //const limitedProducts = products.slice(0, 5);
 
-export default PaymentPage;
+  //Load more products
+  const [visibleProducts, setVisibleProducts] = useState(6);
+
+  // Show more products when the button is clicked
+  const loadMoreProducts = () => {
+    setVisibleProducts((prev) => prev + 3);
+  };
+
+  return (
+    <div>
+      <h1>Name and Logo</h1>
+      <div className="products-container">
+        {products.slice(0, visibleProducts).map((product) => (
+          <div key={product.id} className="product">
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+            <img src={product.thumbnail} alt={product.title} width="100" />
+          </div>
+        ))}
+      </div>
+      {/* Show 'Load More' button if there are more products to load */}
+      {visibleProducts < products.length && (
+        <button onClick={loadMoreProducts}>Load More</button>
+      )}
+      <div>
+        <a href="http://localhost:3000/payment/">PAYMENT</a>
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
