@@ -1,25 +1,27 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
+import { Product } from '../interface/products';
 interface CartItem {
     id: number;
     name: string;
     price: number;
     quantity: number;
+    product:Product;
 }
 
 interface CartContextType {
     cart: CartItem[];
-    addToCart: (product: CartItem, quantity: number) => void;
+    addToCart: (product: Product, quantity: number) => void;
     removeFromCart: (id: number) => void;
     clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+
 export const CartProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
     const [cart, setCart] = useState<CartItem[]>([]);
 
-    const addToCart = (product: CartItem, quantity: number) => {
+const addToCart = (product: Product, quantity: number) => {
         setCart((prevCart) => {
             const existingItemIndex = prevCart.findIndex((item) => item.id === product.id);
             if (existingItemIndex > -1) {
@@ -27,7 +29,7 @@ export const CartProvider: React.FC<{children: React.ReactNode}> = ({ children }
                 updatedCart[existingItemIndex].quantity += quantity;
                 return updatedCart;
             } else {
-                return [...prevCart, { ...product, quantity }];
+                return [...prevCart, { ...product, quantity, name: product.title, product }];
             }
         });
     };
