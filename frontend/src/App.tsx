@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../src/views/HomePage"; // Import your HomePage component
-import ProductPage from "../src/views/ProductPage"; // Import ProductPage component
+import ProductPage from "../src/views/productPage"; // Import ProductPage component
 import PaymentPage from "../src/views/PaymentPage"; // Import PaymentPage component
 import productsData from "./data/products.json"; // Import the products JSON file
 import ShoppingBasketPage from "./views/ShoppingBasketPage";
+import ReceiptPage from "./views/ReceiptPage";
 import { HomePageProvider } from "../src/context/HomePageContext";
 import { CartProvider } from "./context/CartContext";
 
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/product/:id" element={<ProductPage onQuantityChange={handleQuantityChange} />} /> {/* Pass the handler */}
           <Route path="/basket" element={<ShoppingBasketPage />}/>
+          <Route path="/receipt" element={<ReceiptPage />}/>
         </Routes>
       </BrowserRouter>
     </CartProvider>

@@ -42,9 +42,9 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
       {visibleProducts < products.length && (
         <button onClick={loadMoreProducts}>Load More</button>
       )}
-      <div>
-        <a href="http://localhost:3000/payment/">PAYMENT</a>
-      </div>
+        <div>
+            <a href="http://localhost:3000/payment/">PAYMENT</a>
+        </div>
     </div>
   );
 };
