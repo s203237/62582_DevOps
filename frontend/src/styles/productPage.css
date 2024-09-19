@@ -1,0 +1,142 @@
+/* Layout */
+.product-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #D8CAC1; /* beige */
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    background-color: #F4F4F4; /* light color */
+}
+
+/* Billede stil */
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #685F59; /* grey background */
+}
+
+/* Produkt */
+.product-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Titel */
+.product-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1E1E1D; /* dark grey */
+    text-align: left;
+}
+
+/* Produkt beskrivelse */
+.product-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #685F59; /* grey */
+    text-align: left;
+}
+
+/* Pris og purchase */
+.product-purchase {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Pris */
+.product-price span {
+    font-size: 3rem;
+    color: #41565B; /* dark blue */
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Vælg kvantitet */
+.product-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.product-quantity label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #778B8F; /* blue/gray */
+}
+
+.product-quantity select {
+    padding: 8px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Kurv knap */
+.add-to-cart {
+    background-color: #778B8F; /* blue/gray */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+
+    .add-to-cart:hover {
+        background-color: #41565B; /* dark blue */
+    }
+
+    /* Lager info */
+
+    .product-purchase p {
+        font-size: 1rem;
+        color: #1E1E1D; /* dark gray */
+        font-weight: normal;
+    }
+
+
+    (max-width: 768px) {
+        .product-container {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .product-details {
+            margin-left: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .product-purchase {
+            align-items: center;
+        }
+
+        .add-to-cart {
+            align-self: center;
+        }
+    }
+}
