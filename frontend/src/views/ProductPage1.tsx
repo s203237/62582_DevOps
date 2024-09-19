@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/productPage.css';
 
-function ProductPage() {
+function ProductPage1() {
     const [quantity, setQuantity] = useState<number>(1);
 
     const handleQuantityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -61,4 +61,4 @@ function ProductPage() {
     );
 }
 
-export default ProductPage;
+export default ProductPage1;
