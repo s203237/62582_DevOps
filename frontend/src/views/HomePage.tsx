@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Product } from "../interface/products";
+import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
 
 interface HomePageProps {
@@ -12,18 +13,24 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
 
   //Load more products
   const [visibleProducts, setVisibleProducts] = useState(6);
+  const navigate = useNavigate();
 
   // Show more products when the button is clicked
   const loadMoreProducts = () => {
     setVisibleProducts((prev) => prev + 3);
   };
+  // handle product click to navigate to ProductPage
+  const handleProductClick= (id: number) => {
+    navigate(`/product/${id}`);
+  }
 
   return (
     <div>
       <h1>Name and Logo</h1>
       <div className="products-container">
         {products.slice(0, visibleProducts).map((product) => (
-          <div key={product.id} className="product">
+          <div key={product.id} className="product"
+            onClick={() => handleProductClick(product.id)}>
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>

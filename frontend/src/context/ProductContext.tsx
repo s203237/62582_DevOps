@@ -7,6 +7,7 @@ interface Product {
     price: number;
     image: string;
     availableOnline: number;
+    discountPercentage?: number;
 }
 
 interface ProductContextType {
