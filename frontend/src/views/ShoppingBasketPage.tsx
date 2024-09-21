@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import { Table } from "reactstrap";
+import { Table } from 'reactstrap';
+
 import { useNavigate } from "react-router-dom";
 interface Product {
   id: number;

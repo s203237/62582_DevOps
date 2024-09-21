@@ -17,26 +17,25 @@ const App: React.FC = () => {
   };
 
   return (
-    //<HomePageProvider>
-    <CartProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage products={productsData.products} />}
-          />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route
-            path="/product/:id"
-            element={<ProductPage onQuantityChange={handleQuantityChange} />}
-          />{" "}
-          {/* Pass the handler */}
-          <Route path="/basket" element={<ShoppingBasketPage />} />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
-
-    //</HomePageProvider>
+    <HomePageProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage products={productsData.products} />}
+            />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route
+              path="/product/:id"
+              element={<ProductPage onQuantityChange={handleQuantityChange} />}
+            />{" "}
+            {/* Pass the handler */}
+            <Route path="/basket" element={<ShoppingBasketPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </HomePageProvider>
   );
 };
 
