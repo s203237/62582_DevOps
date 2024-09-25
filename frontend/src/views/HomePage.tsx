@@ -6,7 +6,6 @@ import "../styles/HomePage.css";
 interface HomePageProps {
   products: Product[];
 }
-
 const HomePage: React.FC<HomePageProps> = ({ products }) => {
   // Limit the number of products displayed
   //const limitedProducts = products.slice(0, 5);

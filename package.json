@@ -1,0 +1,22 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "DTU course project",
+  "main": "index.js",
+  "scripts": {
+    "test": "insstall package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "62582_DevOps"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "reactstrap": "^9.2.2"
+  },
+  "devDependencies": {
+    "@types/reactstrap": "^8.7.2"
+  }
+}

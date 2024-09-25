@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import { Product } from "../interface/products";
 import productsData from "../data/products.json"; // Import product data from JSON file
 import { useCart } from "../context/CartContext";
@@ -14,26 +14,24 @@ const ProductPage: React.FC<ProductPageProps> = ({ onQuantityChange }) => { // A
   const { addToCart } = useCart();
   const increaseQuantity = () => setQuantity((prev) => prev + 1);
   const decreaseQuantity = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (product) {
       onQuantityChange(product.id, quantity);
     }
   }, [quantity, product, onQuantityChange]);
-
-  const navigate = useNavigate();
-  //const context = useCart();
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+  
   const handleAddToCart = () => {
     console.log ('before products added to cart');
-    addToCart(product, quantity);
+    addToCart(product!, quantity);
     console.log ('after products added to cart');
     navigate("/basket"); // Navigate to ShoppingBasketPage after adding to cart
     console.log ('after navigate to basket');
   };
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   return (
     <div

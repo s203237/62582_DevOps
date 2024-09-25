@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { Product } from '../interface/products';
 interface CartItem {
     id: number;
@@ -6,12 +6,13 @@ interface CartItem {
     price: number;
     quantity: number;
     product:Product;
+  
 }
-
-interface CartContextType {
+export interface CartContextType {
     cart: CartItem[];
     addToCart: (product: Product, quantity: number) => void;
     removeFromCart: (id: number) => void;
+    updateQuantity: (id: number, quantity: number) => void;
     clearCart: () => void;
 }
 
@@ -33,6 +34,15 @@ const addToCart = (product: Product, quantity: number) => {
             }
         });
     };
+    const updateQuantity = (id: number, quantity: number) => {
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.product.id === id
+              ? { ...item, quantity: quantity > 0 ? quantity : 1 }
+              : item
+          )
+        );
+      };
 
     const removeFromCart = (id: number) => {
         setCart((prevCart) => prevCart.filter((item) => item.id !== id));
@@ -43,8 +53,8 @@ const addToCart = (product: Product, quantity: number) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
-            {children}
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>{children}
+           
         </CartContext.Provider>
     );
 };
