@@ -8,6 +8,7 @@ import ShoppingBasketPage from "./views/ShoppingBasketPage";
 import { HomePageProvider } from "../src/context/HomePageContext";
 import { CartProvider } from "./context/CartContext";
 import ProductPage1 from "../src/views/ProductPage1";
+import NavigationBar from "./components/navigation_bar";
 
 const App: React.FC = () => {
   // Handler function for quantity change
@@ -20,6 +21,7 @@ const App: React.FC = () => {
     <HomePageProvider>
       <CartProvider>
         <BrowserRouter>
+          <NavigationBar />
           <Routes>
             <Route
               path="/"
