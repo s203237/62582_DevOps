@@ -1,25 +1,25 @@
 /* HomePage.css */
-.homepage-container {
+.homepage-container2 {
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #eee4da; /* Light beige */
 }
 
-.homepage-title {
+.homepage-title2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
   color: #393b25;
 }
 
-.products-container {
+.products-container2 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
-.product-card {
+.product-card2 {
   background-color: #d1bc8e; /* Soft brown */
   padding: 15px;
   border: 1px solid #82846d; /* Olive gray border */
@@ -34,12 +34,12 @@
   height: 400px; /* Fixed height */
 }
 
-.product-card:hover {
+.product-card2:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.product-title {
+.product-title2 {
   font-size: 1rem;
   font-weight: 700;
   color: #393b25;

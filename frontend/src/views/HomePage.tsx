@@ -51,15 +51,15 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
     }, [loadMoreProducts]);
 
     return (
-        <div className="homepage-container">
-            <h1 className="homepage-title">MegaMart</h1>
-            <div className="products-container">
+        <div className="homepage-container2">
+            <h1 className="homepage-title2">MegaMart</h1>
+            <div className="products-container2">
                 {products.slice(0, visibleProducts).map((product) => (
-                    <div key={product.id} className="product-card">
+                    <div key={product.id} className="product-card2">
                         <div onClick={() => handleProductClick(product.id)}>
-                            <h2 className="product-title">{product.title}</h2>
-                            <p className="product-description">{product.description}</p>
-                            <p className="product-price">Price: ${product.price}</p>
+                            <h2 className="product-title2">{product.title}</h2>
+                            <p className="product-description2">{product.description}</p>
+                            <p className="product-price2">Price: ${product.price}</p>
                             <img src={product.thumbnail} alt={product.title} className="product-image" />
                         </div>
                         <button className="quick-add-to-cart-btn" onClick={() => handleAddToCart(product)}>
