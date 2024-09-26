@@ -1,8 +1,10 @@
 // Some of the components in this file have been made with the help of AI
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Product } from '../interface/products'; // Assuming you have this interface
 import '../styles/productPage.css';
+import { useCart } from "../context/CartContext";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
+
 
 interface ProductPage1Props {
     products: Product[];
@@ -11,6 +13,9 @@ interface ProductPage1Props {
 const ProductPage1: React.FC<ProductPage1Props> = ({ products }) => {
     const { id } = useParams<{ id: string }>();
     const [quantity, setQuantity] = useState<number>(1);
+    const { addToCart } = useCart();
+    const navigate = useNavigate();
+
 
     const product = products.find((prod) => prod.id === parseInt(id || '0'));
 
@@ -20,6 +25,13 @@ const ProductPage1: React.FC<ProductPage1Props> = ({ products }) => {
 
     const handleQuantityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setQuantity(Number(event.target.value));
+    };
+    const handleAddToCart = () => {
+        console.log('before products added to cart');
+        addToCart(product, quantity);
+        console.log('after products added to cart');
+        navigate("/basket"); // Navigate to ShoppingBasketPage after adding to cart
+        console.log('after navigate to basket');
     };
 
     return (
@@ -55,7 +67,7 @@ const ProductPage1: React.FC<ProductPage1Props> = ({ products }) => {
                             </select>
                         </div>
 
-                        <button className="add-to-cart">Læg i Kurv</button>
+                        <button className="add-to-cart" onClick={handleAddToCart}>Læg i Kurv</button>
                         <p>På lager online (10+)</p>
                     </div>
                 </div>
