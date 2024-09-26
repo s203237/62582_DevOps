@@ -60,7 +60,7 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
                             <h2 className="product-title2">{product.title}</h2>
                             <p className="product-description2">{product.description}</p>
                             <p className="product-price2">Price: ${product.price}</p>
-                            <img src={product.thumbnail} alt={product.title} className="product-image" />
+                            <img src={product.thumbnail} alt={product.title} className="homepage-product-image" />
                         </div>
                         <button className="quick-add-to-cart-btn" onClick={() => handleAddToCart(product)}>
                             <span className="cart-icon">
