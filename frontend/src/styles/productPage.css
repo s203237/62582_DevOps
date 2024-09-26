@@ -1,11 +1,10 @@
-/* Layout */
 .product-page {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
     font-family: Arial, sans-serif;
-    background-color: #D8CAC1; /* beige */
+    background-color: #deefed;
 }
 
 .product-container {
@@ -13,14 +12,13 @@
     flex-direction: row;
     max-width: 900px;
     width: 100%;
-    background-color: #F4F4F4; /* light color */
+    background-color: #fbfcfd;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     gap: 30px;
 }
 
-/* Image styling */
 .product-image {
     display: flex;
     justify-content: center;
@@ -28,15 +26,6 @@
     width: 100%;
 }
 
-{/*.product-image img {
-    max-width: 500px;
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    background-color: #685F59; /* grey background */
-}/*}
-
-/* Product details */
 .product-details {
     flex-grow: 1;
     display: flex;
@@ -45,23 +34,20 @@
     align-items: flex-start;
 }
 
-/* Title */
 .product-details h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #1E1E1D; /* dark grey */
+    color: #93a7a6;
     text-align: left;
 }
 
-/* Product description */
 .product-description {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #685F59; /* grey */
+    color: #bec9ca;
     text-align: left;
 }
 
-/* Price and purchase */
 .product-purchase {
     display: flex;
     flex-direction: column;
@@ -70,15 +56,13 @@
     width: 100%;
 }
 
-/* Price */
 .product-price span {
     font-size: 3rem;
-    color: #41565B; /* dark blue */
+    color: #41565B;
     font-weight: bold;
     display: inline-block;
 }
 
-/* Quantity selection */
 .product-quantity {
     display: flex;
     align-items: center;
@@ -88,7 +72,7 @@
     margin-right: 10px;
     font-weight: bold;
     font-size: 1.1rem;
-    color: #778B8F; /* blue/gray */
+    color: #778B8F;
 }
 
 .product-quantity select {
@@ -98,9 +82,8 @@
     border: 1px solid #ccc;
 }
 
-/* Add to cart button */
 .add-to-cart {
-    background-color: #778B8F; /* blue/gray */
+    background-color: #778B8F;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -113,17 +96,15 @@
 }
 
 .add-to-cart:hover {
-    background-color: #41565B; /* dark blue */
+    background-color: #41565B;
 }
 
-/* Stock info */
 .product-purchase p {
     font-size: 1rem;
-    color: #1E1E1D; /* dark gray */
+    color: #1E1E1D;
     font-weight: normal;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .product-container {
         flex-direction: column;
