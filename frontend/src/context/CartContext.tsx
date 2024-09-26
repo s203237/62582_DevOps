@@ -6,12 +6,14 @@ interface CartItem {
     price: number;
     quantity: number;
     product:Product;
+  
 }
 
 interface CartContextType {
     cart: CartItem[];
     addToCart: (product: Product, quantity: number) => void;
     removeFromCart: (id: number) => void;
+    updateQuantity: (id: number, quantity: number) => void;
     clearCart: () => void;
 }
 
@@ -43,7 +45,9 @@ const addToCart = (product: Product, quantity: number) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart,updateQuantity(id, quantity) {
+            
+        }, clearCart }}>
             {children}
         </CartContext.Provider>
     );

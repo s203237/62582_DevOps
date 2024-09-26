@@ -163,3 +163,5 @@ cython_debug/
 
 # Ignore the SQLite database file
 database/mydatabase.db
+/node_modules/
+/package.json

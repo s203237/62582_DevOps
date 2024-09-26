@@ -1,0 +1,64 @@
+{/*Some of the components in this file have been made with the help of AI*/}
+body {
+    background-color: #F5F3EF;
+    font-family: 'Arial', sans-serif;
+    color: #1E1E1D;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #1E1E1D;
+}
+
+.receipt-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.receipt-section {
+    background-color: #E8DFD3;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.receipt-section h2 {
+    margin-bottom: 15px;
+}
+
+.receipt-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.receipt-section p strong {
+    color: #1E1E1D;
+}
+
+/* Thank You Message */
+.thank-you-message {
+    background-color: #778B8F;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.thank-you-message h3 {
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.thank-you-message p {
+    font-size: 16px;
+    margin: 0;
+}

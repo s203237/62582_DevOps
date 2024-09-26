@@ -1,3 +1,4 @@
+// Some of the components in this file have been made with the help of AI
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../interface/products'; // Assuming you have this interface

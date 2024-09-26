@@ -1,52 +1,80 @@
-import React, { useState } from "react";
+// Some of the components in this file have been made with the help of AI
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Product } from "../interface/products";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "../styles/HomePage.css";
+import { FaShoppingCart } from 'react-icons/fa';
 
 interface HomePageProps {
-  products: Product[];
+    products: Product[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({ products }) => {
-  // Limit the number of products displayed
-  //const limitedProducts = products.slice(0, 5);
+    const { addToCart } = useCart();
+    const [visibleProducts, setVisibleProducts] = useState(6);
+    const navigate = useNavigate();
+    const observerRef = useRef<HTMLDivElement | null>(null); // Ref for the observer target
 
-  //Load more products
-  const [visibleProducts, setVisibleProducts] = useState(6);
-  const navigate = useNavigate();
+    // Function to handle adding a product to the cart
+    const handleAddToCart = (product: Product) => {
+        addToCart(product, 1);
+        alert(`${product.title} has been added to your cart!`);
+    };
 
-  // Show more products when the button is clicked
-  const loadMoreProducts = () => {
-    setVisibleProducts((prev) => prev + 3);
-  };
-  // handle product click to navigate to ProductPage
-  const handleProductClick= (id: number) => {
-    navigate(`/product/${id}`);
-  }
+    // Navigate to product details
+    const handleProductClick = (id: number) => {
+        navigate(`/product/${id}`);
+    };
 
-  return (
-    <div>
-      <h1>Name and Logo</h1>
-      <div className="products-container">
-        {products.slice(0, visibleProducts).map((product) => (
-          <div key={product.id} className="product"
-            onClick={() => handleProductClick(product.id)}>
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <img src={product.thumbnail} alt={product.title} width="100" />
-          </div>
-        ))}
-      </div>
-      {/* Show 'Load More' button if there are more products to load */}
-      {visibleProducts < products.length && (
-        <button onClick={loadMoreProducts}>Load More</button>
-      )}
-      <div>
-        <a href="http://localhost:3000/payment/">PAYMENT</a>
-      </div>
-    </div>
-  );
+    // Infinite scroll: load more products when the user scrolls to the end
+    const loadMoreProducts = useCallback(() => {
+        setVisibleProducts((prev) => prev + 3);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                loadMoreProducts();
+            }
+        });
+
+        if (observerRef.current) {
+            observer.observe(observerRef.current);
+        }
+
+        return () => {
+            if (observerRef.current) {
+                observer.unobserve(observerRef.current);
+            }
+        };
+    }, [loadMoreProducts]);
+
+    return (
+        <div className="homepage-container">
+            <h1 className="homepage-title">MegaMart</h1>
+            <div className="products-container">
+                {products.slice(0, visibleProducts).map((product) => (
+                    <div key={product.id} className="product-card">
+                        <div onClick={() => handleProductClick(product.id)}>
+                            <h2 className="product-title">{product.title}</h2>
+                            <p className="product-description">{product.description}</p>
+                            <p className="product-price">Price: ${product.price}</p>
+                            <img src={product.thumbnail} alt={product.title} className="product-image" />
+                        </div>
+                        <button className="quick-add-to-cart-btn" onClick={() => handleAddToCart(product)}>
+                            <span className="cart-icon">
+                                <FaShoppingCart />
+                            </span> 
+                            Add to Cart
+                        </button>
+                    </div>
+                ))}
+            </div>
+            {/* Invisible div used to trigger infinite scrolling */}
+            <div ref={observerRef} style={{ height: 1 }}></div>
+        </div>
+    );
 };
 
 export default HomePage;
