@@ -6,7 +6,7 @@ import HomePage from "../src/views/HomePage"; // Import your HomePage component
 import PaymentPage from "../src/views/PaymentPage"; // Import PaymentPage component
 import productsData from "./data/products.json"; // Import the products JSON file
 import ShoppingBasketPage from "./views/ShoppingBasketPage";
-import ReceiptPage from "./views/ReceiptPage";
+import ReceiptPage from "../src/views/ReceiptPage";
 import { HomePageProvider } from "../src/context/HomePageContext";
 import { CartProvider } from "./context/CartContext";
 import ProductPage1 from "../src/views/ProductPage1";
@@ -30,6 +30,7 @@ const App: React.FC = () => {
           {/* {<Route path="/product/:id" element={<ProductPage1 onQuantityChange={handleQuantityChange}/>} /> Pass the handler */}
           <Route path="/product/:id" element={<ProductPage1 products={productsData.products}  />}/>
           <Route path="/basket" element={<ShoppingBasketPage />}/>
+          <Route path="/receipt" element={<ReceiptPage />}/>
         </Routes>
       </BrowserRouter>
     </CartProvider>

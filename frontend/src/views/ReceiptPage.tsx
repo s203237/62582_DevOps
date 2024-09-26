@@ -1,9 +1,12 @@
 // Some of the components in this file have been made with the help of AI
 import React from 'react';
 import '../styles/ReceiptPage.css';
+import { useLocation } from 'react-router-dom';
 
-// ReceiptPage component
 const ReceiptPage: React.FC = () => {
+    const location = useLocation();
+    const { billingInfo, paymentMethod, paymentDetails } = location.state || {};
+
     return (
         <div className="receipt-page">
             <h1>Receipt</h1>
@@ -11,23 +14,28 @@ const ReceiptPage: React.FC = () => {
             {/* Billing Information Section */}
             <div className="receipt-section">
                 <h2>Billing Information</h2>
-                <p><strong>Full Name:</strong></p>
-                <p><strong>Email:</strong></p>
-                <p><strong>Phone Number:</strong></p>
-                <p><strong>Street Address:</strong></p>
-                <p><strong>Address Line 2:</strong></p>
-                <p><strong>Postcode:</strong></p>
-                <p><strong>City:</strong></p>
-                <p><strong>Country:</strong></p>
+                <p><strong>Full Name:</strong> {billingInfo?.fullName || 'N/A'}</p>
+                <p><strong>Email:</strong> {billingInfo?.email || 'N/A'}</p>
+                <p><strong>Phone Number:</strong> {billingInfo?.phoneNumber || 'N/A'}</p>
+                <p><strong>Street Address:</strong> {billingInfo?.streetAddress || 'N/A'}</p>
+                <p><strong>Address Line 2:</strong> {billingInfo?.addressLine2 || 'N/A'}</p>
+                <p><strong>Postcode:</strong> {billingInfo?.postcode || 'N/A'}</p>
+                <p><strong>City:</strong> {billingInfo?.city || 'N/A'}</p>
+                <p><strong>Country:</strong> {billingInfo?.country || 'N/A'}</p>
             </div>
 
             {/* Payment Information Section */}
             <div className="receipt-section">
                 <h2>Payment Information</h2>
-                <p><strong>Payment Method:</strong></p>
-                <p><strong>Card Number:</strong></p>
-                <p><strong>Expiry Date:</strong></p>
-                <p><strong>MobilePay Phone Number:</strong></p>
+                <p><strong>Payment Method:</strong> {paymentMethod}</p>
+                {paymentMethod === 'creditCard' ? (
+                    <>
+                        <p><strong>Card Number:</strong> {paymentDetails?.cardNumber || 'N/A'}</p>
+                        <p><strong>Expiry Date:</strong> {paymentDetails?.expiryDate || 'N/A'}</p>
+                    </>
+                ) : (
+                    <p><strong>MobilePay Phone Number:</strong> {paymentDetails?.mobilePayPhoneNumber || 'N/A'}</p>
+                )}
             </div>
 
             {/* Thank You Message */}
