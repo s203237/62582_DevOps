@@ -1,3 +1,4 @@
+// Some of the components in this file have been made with the help of AI
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Product } from "../interface/products";
 import { useNavigate } from "react-router-dom";

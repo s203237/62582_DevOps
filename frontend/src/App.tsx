@@ -1,3 +1,4 @@
+// Some of the components in this file have been made with the help of AI
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../src/views/HomePage"; // Import your HomePage component
