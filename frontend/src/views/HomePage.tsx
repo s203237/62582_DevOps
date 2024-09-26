@@ -73,9 +73,6 @@ const HomePage: React.FC<HomePageProps> = ({ products }) => {
             </div>
             {/* Invisible div used to trigger infinite scrolling */}
             <div ref={observerRef} style={{ height: 1 }}></div>
-            <div className="payment-link-container">
-                <a href="/payment/" className="payment-link">PAYMENT</a>
-            </div>
         </div>
     );
 };
