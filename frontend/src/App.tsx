@@ -8,6 +8,7 @@ import ShoppingBasketPage from "./views/ShoppingBasketPage";
 import ReceiptPage from "./views/ReceiptPage";
 import { HomePageProvider } from "../src/context/HomePageContext";
 import { CartProvider } from "./context/CartContext";
+import ProductPage1 from "../src/views/ProductPage1";
 
 const App: React.FC = () => {
   // Handler function for quantity change
@@ -17,20 +18,26 @@ const App: React.FC = () => {
   };
 
   return (
-    //<HomePageProvider>
-    <CartProvider>
-    <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage products={productsData.products} />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/product/:id" element={<ProductPage onQuantityChange={handleQuantityChange} />} /> {/* Pass the handler */}
-          <Route path="/basket" element={<ShoppingBasketPage />}/>
-          <Route path="/receipt" element={<ReceiptPage />}/>
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
-      
-    //</HomePageProvider>
+
+    <HomePageProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage products={productsData.products} />}
+            />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route
+              path="/product/:id"
+              element={<ProductPage onQuantityChange={handleQuantityChange} />}
+            />{" "}
+            {/* Pass the handler */}
+            <Route path="/basket" element={<ShoppingBasketPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </HomePageProvider>
   );
 };
 
