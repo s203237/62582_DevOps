@@ -1,34 +1,37 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Product } from '../interface/products'; // Assuming you have this interface
 import '../styles/productPage.css';
 
-function ProductPage() {
+interface ProductPage1Props {
+    products: Product[];
+}
+
+const ProductPage1: React.FC<ProductPage1Props> = ({ products }) => {
+    const { id } = useParams<{ id: string }>();
     const [quantity, setQuantity] = useState<number>(1);
+
+    const product = products.find((prod) => prod.id === parseInt(id || '0'));
+
+    if (!product) {
+        return <div>Product not found</div>;
+    }
 
     const handleQuantityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setQuantity(Number(event.target.value));
     };
 
-    // produkt
-    const product = {
-        id: 1,
-        name: 'Random Item',
-        description: 'This random item is a great random item.',
-        price: 40,
-        image: 'https://via.placeholder.com/400',
-        availableOnline: 100
-    };
-
     return (
         <div className="product-page">
             <div className="product-container">
-                {/* produkt billede */}
+                {/* Product image */}
                 <div className="product-image">
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.thumbnail} alt={product.title} />
                 </div>
 
-                {/* produkt detaljer */}
+                {/* Product details */}
                 <div className="product-details">
-                    <h1>{product.name}</h1>
+                    <h1>{product.title}</h1>
                     <p className="product-description">{product.description}</p>
 
                     <div className="product-purchase">
@@ -49,16 +52,15 @@ function ProductPage() {
                                     </option>
                                 ))}
                             </select>
-
                         </div>
 
                         <button className="add-to-cart">Læg i Kurv</button>
-                        <p>På lager online ({product.availableOnline}+)</p>
+                        <p>På lager online (10+)</p>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
 
-export default ProductPage;
+export default ProductPage1;

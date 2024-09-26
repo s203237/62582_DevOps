@@ -13,24 +13,30 @@
     flex-direction: row;
     max-width: 900px;
     width: 100%;
-    background-color: #fff;
+    background-color: #F4F4F4; /* light color */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     gap: 30px;
-    background-color: #F4F4F4; /* light color */
 }
 
-/* Billede stil */
-.product-image img {
+/* Image styling */
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 400px;
+}
+
+{/*.product-image img {
+    max-width: 500px;
+    width: 100%;
     border-radius: 8px;
     object-fit: cover;
     background-color: #685F59; /* grey background */
-}
+}/*}
 
-/* Produkt */
+/* Product details */
 .product-details {
     flex-grow: 1;
     display: flex;
@@ -39,7 +45,7 @@
     align-items: flex-start;
 }
 
-/* Titel */
+/* Title */
 .product-details h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -47,7 +53,7 @@
     text-align: left;
 }
 
-/* Produkt beskrivelse */
+/* Product description */
 .product-description {
     font-size: 1.2rem;
     margin-bottom: 30px;
@@ -55,7 +61,7 @@
     text-align: left;
 }
 
-/* Pris og purchase */
+/* Price and purchase */
 .product-purchase {
     display: flex;
     flex-direction: column;
@@ -64,7 +70,7 @@
     width: 100%;
 }
 
-/* Pris */
+/* Price */
 .product-price span {
     font-size: 3rem;
     color: #41565B; /* dark blue */
@@ -72,7 +78,7 @@
     display: inline-block;
 }
 
-/* Vælg kvantitet */
+/* Quantity selection */
 .product-quantity {
     display: flex;
     align-items: center;
@@ -92,7 +98,7 @@
     border: 1px solid #ccc;
 }
 
-/* Kurv knap */
+/* Add to cart button */
 .add-to-cart {
     background-color: #778B8F; /* blue/gray */
     color: white;
@@ -104,39 +110,38 @@
     font-weight: bold;
     transition: background-color 0.3s ease;
     align-self: flex-start;
+}
 
-    .add-to-cart:hover {
-        background-color: #41565B; /* dark blue */
+.add-to-cart:hover {
+    background-color: #41565B; /* dark blue */
+}
+
+/* Stock info */
+.product-purchase p {
+    font-size: 1rem;
+    color: #1E1E1D; /* dark gray */
+    font-weight: normal;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
     }
 
-    /* Lager info */
-
-    .product-purchase p {
-        font-size: 1rem;
-        color: #1E1E1D; /* dark gray */
-        font-weight: normal;
+    .product-details {
+        margin-left: 0;
+        text-align: center;
+        align-items: center;
     }
 
+    .product-purchase {
+        align-items: center;
+    }
 
-    (max-width: 768px) {
-        .product-container {
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .product-details {
-            margin-left: 0;
-            text-align: center;
-            align-items: center;
-        }
-
-        .product-purchase {
-            align-items: center;
-        }
-
-        .add-to-cart {
-            align-self: center;
-        }
+    .add-to-cart {
+        align-self: center;
     }
 }
