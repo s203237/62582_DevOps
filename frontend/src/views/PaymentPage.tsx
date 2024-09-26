@@ -1,3 +1,4 @@
+// Some of the components in this file have been made with the help of AI
 import React, { useState } from 'react';
 import '../styles/PaymentPage.css';
 import {useNavigate} from "react-router-dom";

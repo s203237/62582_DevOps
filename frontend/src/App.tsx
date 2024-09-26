@@ -25,17 +25,11 @@ const App: React.FC = () => {
         <BrowserRouter>
           <NavigationBar />
           <Routes>
-            <Route
-              path="/"
-              element={<HomePage products={productsData.products} />}
-            />
+            <Route path="/" element={<HomePage products={productsData.products} />}/>
             <Route path="/payment" element={<PaymentPage />} />
-            <Route
-              path="/product/:id"
-              element={<ProductPage onQuantityChange={handleQuantityChange} />}
-            />{" "}
-            {/* Pass the handler */}
+            <Route path="/product/:id" element={<ProductPage onQuantityChange={handleQuantityChange} />}/>{" "}
             <Route path="/basket" element={<ShoppingBasketPage />} />
+            <Route path="/receipt" element={<ReceiptPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
