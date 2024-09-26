@@ -2,6 +2,7 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 import { Table } from 'reactstrap';
 import { useNavigate } from "react-router-dom";
+import "../styles/ShoppingBasket.css";
 interface ShoppingBasketPageProps {
   onQuantityChange: (productId: number, quantity: number) => void;
 
@@ -63,8 +64,8 @@ const ShoppingBasketPage: React.FC<ShoppingBasketPageProps> = ({onQuantityChange
                     </td>
                     <td>{item.product.title}</td>
                     <td>${item.product.price.toFixed(2)}</td>
-                    <td>
-                      <div className="quantity-controls">
+                    <td >
+                      <div  className="quantity-controls">
                         <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>-</button>
                         <input
                           type="text"
@@ -84,7 +85,7 @@ const ShoppingBasketPage: React.FC<ShoppingBasketPageProps> = ({onQuantityChange
               })}
             </tbody>
           </Table>
-          <h2>Total: ${subTotal.toFixed(2)}</h2>
+          <h2 >Total: ${subTotal.toFixed(2)}</h2>
         </>
       )}
 
