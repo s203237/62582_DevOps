@@ -5,6 +5,7 @@ import ProductPage from "../src/views/productPage"; // Import ProductPage compon
 import PaymentPage from "../src/views/PaymentPage"; // Import PaymentPage component
 import productsData from "./data/products.json"; // Import the products JSON file
 import ShoppingBasketPage from "./views/ShoppingBasketPage";
+import ReceiptPage from "./views/ReceiptPage";
 import { HomePageProvider } from "../src/context/HomePageContext";
 import { CartProvider } from "./context/CartContext";
 import ProductPage1 from "../src/views/ProductPage1";
@@ -17,6 +18,7 @@ const App: React.FC = () => {
   };
 
   return (
+
     <HomePageProvider>
       <CartProvider>
         <BrowserRouter>

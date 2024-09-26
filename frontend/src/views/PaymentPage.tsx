@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/PaymentPage.css';
+import {useNavigate} from "react-router-dom";
 
 // PaymentPage component
 const PaymentPage: React.FC = () => {
@@ -23,6 +24,8 @@ const PaymentPage: React.FC = () => {
         cvv: '',
         mobilePayPhoneNumber: '',
     });
+
+    const navigate = useNavigate();
 
     // Update billing information on input change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +52,7 @@ const PaymentPage: React.FC = () => {
         console.log('Billing Information:', billingInfo);
         console.log('Selected Payment Method:', paymentMethod);
         console.log('Payment Details:', paymentDetails);
+        navigate('/receipt', { state: { billingInfo, paymentMethod, paymentDetails } });
     };
 
     return (
@@ -232,7 +236,7 @@ const PaymentPage: React.FC = () => {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="continue-button">Continue</button>
+                <button type="submit" className="continue-button">Proceed</button>
             </form>
         </div>
     );
