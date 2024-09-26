@@ -24,6 +24,7 @@ const App: React.FC = () => {
     //<HomePageProvider>
     <CartProvider>
     <BrowserRouter>
+      <NavigationBar/>
         <Routes>
           <Route path="/" element={<HomePage products={productsData.products} />} />
           <Route path="/payment" element={<PaymentPage />} />
