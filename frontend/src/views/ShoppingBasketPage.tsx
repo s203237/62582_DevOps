@@ -1,20 +1,14 @@
-// Some of the components in this file have been made with the help of AI
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { Table } from 'reactstrap';
-
 import { useNavigate } from "react-router-dom";
-interface Product {
-  id: number;
-  title: string;
-  image: string; // Add the 'image' property to the 'Product' type
-  price: number;
-  discountPercentage?: number;
-}
+import "../styles/ShoppingBasket.css";
+interface ShoppingBasketPageProps {
+  onQuantityChange: (productId: number, quantity: number) => void;
 
-const ShoppingBasketPage: React.FC = () => {
+}
+const ShoppingBasketPage: React.FC<ShoppingBasketPageProps> = ({onQuantityChange}) => {
   const { cart, removeFromCart, updateQuantity } = useCart(); // Assuming removeItem is a function in CartContext
-  const removeItem = removeFromCart;
   const navigate = useNavigate();
   // Calculate the subtotal for all items in the cart
   const subTotal = cart.reduce((acc, { product, quantity }) => {
@@ -33,27 +27,18 @@ const ShoppingBasketPage: React.FC = () => {
     navigate("/payment");
   };
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="shopping-cart-container">
       <h1>Your Shopping Cart</h1>
 
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <Table>
+          <Table className="shopping-cart-table">
             <thead>
               <tr>
                 <th>Product</th>
                 <th></th>
-            
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
@@ -64,8 +49,7 @@ const ShoppingBasketPage: React.FC = () => {
               {cart.map((item) => {
                 const totalBeforeDiscount = item.product.price * item.quantity;
                 const discount = item.product.discountPercentage
-                  ? (totalBeforeDiscount * item.product.discountPercentage) /
-                    100
+                  ? (totalBeforeDiscount * item.product.discountPercentage) / 100
                   : 0;
                 const totalForProduct = totalBeforeDiscount - discount;
 
@@ -75,20 +59,19 @@ const ShoppingBasketPage: React.FC = () => {
                       <img
                         src={item.product.thumbnail}
                         alt={item.product.title}
-                        style={{ width: "50px", height: "50px" }}
+                        className="product-thumbnail"
                       />
                     </td>
                     <td>{item.product.title}</td>
                     <td>${item.product.price.toFixed(2)}</td>
-                    <td>
-
-                      <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+                    <td >
+                      <div  className="quantity-controls">
                         <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>-</button>
                         <input
                           type="text"
                           value={item.quantity}
                           readOnly
-                          style={{ width: "40px", textAlign: "center", border: "1px solid #ccc" }}
+                          className="quantity-input"
                         />
                         <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)}>+</button>
                       </div>
@@ -102,27 +85,21 @@ const ShoppingBasketPage: React.FC = () => {
               })}
             </tbody>
           </Table>
-          <h2>Total: ${subTotal.toFixed(2)}</h2>
+          <h2 >Total: ${subTotal.toFixed(2)}</h2>
         </>
       )}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "end",
-          width: "100%",
-          marginRight: "10px",
-        }}
-      >
-        <button type="button" onClick={handleBack}>
+
+      <div className="cart-actions">
+        <button className="back-button" type="button" onClick={handleBack}>
           Shop more
         </button>
-        <button type="submit" onClick={handlePay}>
-          {" "}
+        <button className="checkout-button" type="submit" onClick={handlePay}>
           Go to checkout
         </button>
       </div>
     </div>
   );
 };
+
 
 export default ShoppingBasketPage;

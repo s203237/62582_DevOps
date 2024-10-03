@@ -30,7 +30,7 @@ const App: React.FC = () => {
           <Route path="/payment" element={<PaymentPage />} />
           {/* {<Route path="/product/:id" element={<ProductPage1 onQuantityChange={handleQuantityChange}/>} /> Pass the handler */}
           <Route path="/product/:id" element={<ProductPage1 products={productsData.products}  />}/>
-          <Route path="/basket" element={<ShoppingBasketPage />}/>
+          <Route path="/basket" element={<ShoppingBasketPage onQuantityChange={handleQuantityChange} />}/>
           <Route path="/receipt" element={<ReceiptPage />}/>
         </Routes>
       </BrowserRouter>
