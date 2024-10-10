@@ -24,7 +24,7 @@ describe('NavigationBar', () => {
     expect(screen.getByText('Basket')).toBeInTheDocument();
   });
 
-  // Tests the "Home" botton
+  // Tests the "Home" button
   it('navigates to the frontpage when Frontpage button is clicked', () => {
     render(<NavigationBar />);
 
@@ -34,7 +34,7 @@ describe('NavigationBar', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 
-  // Test the "Basket" botton
+  // Test the "Basket" button
   it('navigates to the basket when Basket button is clicked', () => {
     render(<NavigationBar />);
 
