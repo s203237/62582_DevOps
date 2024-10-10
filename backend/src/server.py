@@ -1,7 +1,7 @@
 import sqlite3
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../../frontend/public')
 
 # # Connect to the SQLite database in the new 'database/' folder
 # def connect_db():
@@ -25,7 +25,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    # return 'Hello, World!'
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
