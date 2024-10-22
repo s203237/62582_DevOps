@@ -21,11 +21,14 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: Install dependencies
+    - name: Install dependencies (frontend)
+      working-directory: ./frontend
       run: npm ci
 
-    - name: Run build
+    - name: Run build (frontend)
+      working-directory: ./frontend
       run: npm run build
 
-    - name: Run tests
+    - name: Run tests (frontend)
+      working-directory: ./frontend
       run: npm test
