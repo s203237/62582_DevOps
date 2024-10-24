@@ -13,7 +13,6 @@ REM Navigate to frontend folder and install Node.js dependencies
 echo Setting up frontend...
 cd frontend
 npm install
-npm install react-icons
 cd ..
 
 REM Database setup
