@@ -27,17 +27,11 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-    # Thêm bước thiết lập SSH
     - name: Add SSH key
       uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    # Thêm server vào known_hosts
-    - run: |
-        ssh-keyscan -H your-server-ip >> ~/.ssh/known_hosts
-
-    # Chạy lệnh triển khai từ xa
+    - run: ssh-keyscan -H 34.32.16.145 >> ~/.ssh/known_hosts
     - name: Deploy to server
       run: |
-        ssh user@your-server-ip 'cd /path/to/project && git pull && npm install && npm run start'
+          ssh hailyqt@34.32.16.145 'cd ~/62582_DevOps && git pull && npm install && npm run start'
